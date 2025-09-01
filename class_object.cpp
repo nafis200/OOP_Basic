@@ -1,12 +1,6 @@
+// Problem Statement:
 
-
-// Problem – Car Management System (Brain Exercise Style, Modified & Clear)
-
-// প্রশ্ন:
-
-// একটি Car ক্লাস বানান।
-
-// Car ক্লাসে ৩টি variable declare করুন:
+// আপনাকে একটি Car ক্লাস বানাতে হবে, যাতে তিনটি variable থাকে:
 
 // brand → public
 
@@ -14,19 +8,78 @@
 
 // year → protected
 
-// Constructor ব্যবহার করে brand এবং model initialize করুন।
+// Car ক্লাসে করা কাজ:
 
-// Destructor-এ একটি মেসেজ print করুন: "Thank you for using Car Management System"
+// Constructor ব্যবহার করে brand এবং model initialize করতে হবে।
 
-// Car ক্লাসে একটি method বানান যা private variable (model) এর মান return করবে।
+// Destructor-এ program শেষ হওয়ার সময় "Thank you for using Car Management System" print করতে হবে।
 
-// Car ক্লাসে আরেকটি method বানান যা private variable (model) update করবে।
+// Getter method বানাতে হবে model এর জন্য → getModel()
 
-// main function-এ Car object তৈরি করুন।
+// Setter method বানাতে হবে model update করার জন্য → setModel(string m)
 
-// সব variable প্রিন্ট করার জন্য method ব্যবহার করুন।
+// Setter method বানাতে হবে year update করার জন্য → setYear(string y)
 
-// Private variable update করুন এবং আবার প্রিন্ট করুন।
+// Method বানাতে হবে printDetails() → সব variable print করবে
+
+// Input/Output:
+
+// Input:
+
+// প্রথম line: initial brand model
+
+// দ্বিতীয় line: update model এবং year
+
+// Output:
+
+// Initial details print করুন
+
+// Getter method দিয়ে model print করুন
+
+// Update details print করুন
+
+// Program শেষ হলে destructor message print হবে
+
+// Input Format
+// Toyota Ex2020
+// SS-2000 2024
+
+// Output Format
+// Initial Details:
+// Model: Ex2020, Year: , Brand: Toyota
+// Ex2020
+// Updated Details:
+// Model: SS-2000, Year: 2024, Brand: Toyota
+// Thank you for using Car Management System
+
+// Constraints
+
+// Brand, model → strings (max 50 char)
+
+// Year → string বা integer
+
+// Sample Input 1
+// Honda Civic
+// City 2022
+
+// Sample Output 1
+// Initial Details:
+// Model: Civic, Year: , Brand: Honda
+// Civic
+// Updated Details:
+// Model: City, Year: 2022, Brand: Honda
+// Thank you for using Car Management System
+
+
+// 💡 Note:
+
+// Protected variable year main থেকে direct access করা যাবে না → setter ব্যবহার করতে হবে।
+
+// Getter ব্যবহার করে private variable model access করতে হবে।
+
+// Destructor automatically call হবে program শেষ হওয়ার সময়।
+
+
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -45,6 +98,7 @@ public:
     {
         this->model = model;
         this->brand = brand;
+        cout << "Model " << model << " " << "years " << year << "Brands " << brand << "\n";
     }
     ~Car()
     {
@@ -53,19 +107,21 @@ public:
     string getters(){
         return model;
     }
-    void setters(string m){
+    void setters(string m, string y){
         model = m;
+        year = y;
     }
 
     void prints(){
-        cout << model << " " << year << " " << brand << "\n";
+         cout << "Model " << model << " " << "years " << year << "Brands " << brand << "\n";
     }
 };
 int main()
 {
-    Car cars("Ex20200", "toyata");
+    cout << "Initial Details:\n";
+    Car cars("Toyota","Ex2020");
     cout << cars.getters() << "\n";
-    cars.setters("ss-2000");
-    cout << cars.getters() << "\n";
+    cars.setters("ss-2000","2024");
+    cout << "Update details\n";
     cars.prints();
 }
