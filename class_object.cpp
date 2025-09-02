@@ -71,15 +71,6 @@
 // Thank you for using Car Management System
 
 
-// 💡 Note:
-
-// Protected variable year main থেকে direct access করা যাবে না → setter ব্যবহার করতে হবে।
-
-// Getter ব্যবহার করে private variable model access করতে হবে।
-
-// Destructor automatically call হবে program শেষ হওয়ার সময়।
-
-
 
 #include <bits/stdc++.h>
 using namespace std;
