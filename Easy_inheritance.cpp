@@ -105,7 +105,7 @@ public:
     }
 };
 
-class Dog : public Animal
+class Dog : private Animal
 {
 public:
     Dog(string name) : Animal(name)
@@ -115,6 +115,7 @@ public:
     void speak()
     {
         cout << "Woof: " << name << "\n";
+        Animal::speak();
     }
 };
 
@@ -143,6 +144,7 @@ int main()
         {
             Dog d(name);
             d.speak();
+            // d.Animal::speak();
         }
         else
         {
